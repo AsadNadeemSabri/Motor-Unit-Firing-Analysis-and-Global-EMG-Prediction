@@ -1,10 +1,10 @@
-# 🧠 EMG Signal Processing & Motor Unit Analysis (MATLAB)
+# EMG Signal Processing & Motor Unit Analysis (MATLAB)
 
 A MATLAB-based pipeline for processing **High-Density Surface EMG (HD-sEMG)** signals, extracting **Motor Unit Action Potentials (MUAPs)** via Spike-Triggered Averaging, computing discharge rates, and predicting global muscle activity using linear regression.
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Project Structure](#project-structure)
@@ -32,9 +32,13 @@ The pipeline covers signal loading, ADC-to-millivolt conversion, notch and bandp
 ```
 ├── E2_Data_1.mat            # HD-sEMG dataset — Subject 1
 ├── E2_Data_2.mat            # HD-sEMG dataset — Subject 2
-├── emg_processing.m         # Main MATLAB processing script
+├── ExerciseINS02.m          # Main MATLAB processing script
+└── Images/                  # Figures and Diagrams 
+    └── 1MUAP.PNG
+    └── 2STA.PNG
+    └── 3STvsRMS.PNG
+    └── 4PredictedRMS.PNG      
 └── README.md
-```
 
 ---
 
@@ -101,11 +105,15 @@ Result stored in `STA{window_index}{mu_index}` — a cell array of per-channel a
 
 The MUAP waveform of **Motor Unit 3** at the **30 ms** window is plotted across the full **8×24 electrode grid**. Each subplot shows the waveform in black with its **peak-to-peak amplitude (mV)** as the title. Channels with no valid data are labelled `NaN`.
 
+![Visualize](Images/1MUAP.PNG)
+
 ---
 
 ### Task 1.4.2 — MUAP Best-Channel Comparison
 
 For each of **Motor Units 1–5** and all three window sizes, the channel with the **highest peak-to-peak amplitude** is selected and plotted. Results are displayed as a **5×3 grid** with time in milliseconds on the x-axis.
+
+![Visualize](Images/2STA.PNG)
 
 ---
 
@@ -125,11 +133,15 @@ Each motor unit's spike times are converted into a binary spike train, then conv
 
 Each motor unit's sCST (black solid) is plotted alongside the **normalized global EMG RMS** (red dashed) on the same axis, scaled to match the sCST y-range. One subplot per motor unit with a shared time axis.
 
+![Visualize](Images/3STvsRMS.PNG)
+
 ---
 
 ### Task 2.3 — Force Prediction via Linear Regression
 
 All motor unit discharge rates are used as predictors (`X`) and the global EMG RMS as the target (`Y`). A **least-squares linear model** is fitted using MATLAB's backslash operator.
+
+![Visualize](Images/4PredictedRMS.PNG)
 
 Performance is evaluated using two metrics:
 
@@ -171,4 +183,4 @@ exportgraphics(gcf, 'output_figure.png', 'Resolution', 150);
 
 ## 📄 License
 
-This project is for academic and research purposes — FAU Erlangen-Nürnberg, INS Exercise 2.
+This project is for academic and research purposes.
