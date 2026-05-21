@@ -40,6 +40,8 @@ The pipeline covers signal loading, ADC-to-millivolt conversion, notch and bandp
     └── 4PredictedRMS.PNG      
 └── README.md
 
+```
+
 ---
 
 ## Requirements
