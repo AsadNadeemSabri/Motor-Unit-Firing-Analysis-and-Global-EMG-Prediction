@@ -1,4 +1,4 @@
-# EMG Signal Processing & Motor Unit Analysis (MATLAB)
+# Motor Unit Firing Analysis and Global EMG Prediction
 
 A MATLAB-based pipeline for processing **High-Density Surface EMG (HD-sEMG)** signals, extracting **Motor Unit Action Potentials (MUAPs)** via Spike-Triggered Averaging, computing discharge rates, and predicting global muscle activity using linear regression.
 
